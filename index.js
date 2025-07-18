@@ -1,6 +1,6 @@
 //1. 
 
-document.getElementById('count-el').innerText = 5;
+//document.getElementById('count-el').innerText = 5;
 
 //2 
 
@@ -59,3 +59,64 @@ let welcomeEl = document.getElementById('welcome-el');
 let greet = "Welcome back ";
 
 welcomeEl.innerText = greet + name; 
+
+// PRACTICE TIME - PART 1
+
+//1. 
+let firstName = "John Khervin";
+let lastName = " Dela Cruz";
+
+let fullName = firstName + lastName;
+
+console.log(fullName);
+
+//2. 
+function LindaGreet(){
+    let name = "Linda";
+    let greeting = "Hi there";
+
+    let LindaGreet = greeting + ", " + name + "!";
+    console.log(LindaGreet);
+}
+
+LindaGreet();
+
+//3.
+
+let myPoints = 3;
+
+function add3Points(){
+    myPoints += 3;
+}
+
+function remove1Point(){
+    myPoints -= 1;
+}
+
+add3Points();
+add3Points();
+add3Points();
+remove1Point();
+remove1Point();
+
+console.log(myPoints);
+
+//4. 
+
+/*
+1. 22
+2. 18
+3. 65
+4. My points: 59 
+5. 4
+6. 1114
+
+
+*/
+
+//5
+
+document.getElementById('purchase-btn').onclick = function purchase(){
+    document.getElementById('error').textContent = "Invalid Purchase";
+}
+
