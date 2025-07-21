@@ -120,3 +120,103 @@ document.getElementById('purchase-btn').onclick = function purchase(){
     document.getElementById('error').textContent = "Invalid Purchase";
 }
 
+//6. 
+
+let firstCard = 5;
+let secondCard = 8;
+
+let sum = firstCard + secondCard;
+
+if(sum < 21){
+    console.log("Do you want to draw cards?");
+}else if( sum === 21){
+    console.log("You win");
+}else{
+    console.log("Try again next time");
+}
+
+//7.
+
+let age = 22;
+
+if(age >= 21){
+    console.log("You can enter the club!");
+}else{
+    console.log("I'm sorry you are a minor!");
+}
+
+//8. 
+
+let featuredPosts = [
+    "Check out my Netflix clone",
+    "Here's the code for my project",
+    "I've just relaunched my portfolio"
+]
+
+console.log(featuredPosts.length);
+
+//9. 
+
+let aboutMySelf = ["John Khervin Dela Cruz", 20, true]
+
+//10.
+
+let messages = ["Hey, how's it going?", 
+                "I'm great, thank you! How about you?", 
+                "All good. Been working on my portfolio lately."]
+
+let newMessage = "Same here!";
+
+messages.push(newMessage);
+messages.pop();
+
+//11 
+
+for (let count = 10; count < 21; count +=1){
+    console.log(count);
+}
+
+//12. 
+let player1Time = 102;
+let player2Time = 107;
+
+function totalraceTime(){
+    let totalTime = player1Time + player2Time;
+    return totalTime;
+}
+
+let total = totalraceTime();
+
+console.log(total);
+
+//13.
+
+let random = Math.floor(Math.random() * 6);
+
+console.log(random);
+
+//14.
+
+let hasSolvedChallenge = true;
+let hasHintsLeft = false; 
+
+if(hasSolvedChallenge === false && hasHintsLeft === false){
+    showSolution();
+}
+
+function showSolution(){
+    console.log("Showing the solution...")
+}
+
+//15. 
+
+let likeDocumentaries = false;
+let likeStartups = true;
+
+if(likeDocumentaries === true || likeStartups === true){
+    recommendMovie();
+}
+
+function recommendMovie(){
+    console.log("Hey, check out this new film we think you will like!");
+}
