@@ -315,3 +315,8 @@ for(let i = 0; i < fruit.length; i++){
 
 console.log(apple);
 console.log(orange);
+
+//23.
+document.getElementById('box').addEventListener("click", function(){
+    console.log("I want to open the box!");
+})
