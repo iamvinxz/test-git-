@@ -40,20 +40,24 @@ function renderGame(){
 }
 
 document.getElementById('newCard-btn').onclick = function newCard(){
-    if(isAlive === true && hasBlackJack === false){
-        let addCard = getrandomCard();
-        sum += addCard;
-        cards.push(addCard);
-        console.log(cards.length);
-            if(cards.length > 3){
-                cards.shift();
-            }
-        renderGame();
+    if(isAlive === false){  
+        alert("Please start the game first!");
     }else{
-        message = "Try again next time!"
-    }
+        if(isAlive === true && hasBlackJack === false){
+            let addCard = getrandomCard();
+            sum += addCard;
+            cards.push(addCard);
+            console.log(cards.length);
+                if(cards.length > 3){
+                    cards.shift();
+                }
+            renderGame();
+        }else{
+            message = "Try again next time!"
+        }
 
-    console.log(cards);
+        console.log(cards);
+    }
 }
 
 function getrandomCard(){
