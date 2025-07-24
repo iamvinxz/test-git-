@@ -320,3 +320,26 @@ console.log(orange);
 document.getElementById('box').addEventListener("click", function(){
     console.log("I want to open the box!");
 })
+
+//24.
+
+localStorage.setItem("myItems", "Guitar");
+console.log(localStorage.getItem("myItems"));
+
+//25.
+
+let data = [
+    {
+        player: "Jane",
+        score: 52
+    },
+    {
+        player: "Mark",
+        score:41
+    }
+]
+
+document.getElementById('jane-btn').addEventListener("click",function(){
+    console.log(data[0].score);
+})
+
