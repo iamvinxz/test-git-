@@ -1,0 +1,12 @@
+{
+    "name":"Lead Notes",
+    "short_name": "Lead Notes",
+    "icons":
+        [
+            {"src":"Pictures/favicon.io/android-chrome-192x192.png", "sizes":"192x192","type":"image/png"},
+            {"src":"Pictures/favicion.io/android-chrome-512x512.png", "size":"512x512", "type":"image/png"}
+        ],
+    "theme_color":"#fffff",
+    "background_color": "#fffff",
+    "display":"standalone"
+}

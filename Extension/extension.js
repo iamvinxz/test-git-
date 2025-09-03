@@ -1,15 +1,16 @@
-let myLeads = [] ;
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getDatabase, ref, push, onValue, remove} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+
+const firebaseConfig = {
+    databaseURL: "https://leads-note-default-rtdb.asia-southeast1.firebasedatabase.app/"
+}
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const referenceInDb = ref(database, "leads");
 
 const input = document.getElementById('input-el');
 const ulEl = document.getElementById('ul-el');
-
-const leadsFromStorage = JSON.parse(localStorage.getItem("myLeads"));
-
-//checks if local storage is empty, then if not render the leads even if the tab is closed
-if(leadsFromStorage){
-    myLeads = leadsFromStorage;
-   renderLeads(myLeads);
-}
 
 //render the leads into lists
 function renderLeads(leads){
@@ -21,27 +22,23 @@ function renderLeads(leads){
     ulEl.innerHTML = listItems;
 }
 
-//clears the array, local storage, and DOM
-document.getElementById('clear-btn').addEventListener("click", function(){
-    localStorage.clear();
-    myLeads = [];
-    renderLeads(myLeads);
+onValue(referenceInDb, function(snapshot){
+    if(snapshot.exists()){
+        const snapshotValues = snapshot.val();
+        const leads = Object.values(snapshotValues);
+        renderLeads(leads);
+    }
 })
 
-document.getElementById('save-btn').addEventListener("click", function(){
-    chrome.tabs.query({active: true, lastFocusedWindow: true}, function(tabs){
-        myLeads.push(tabs[0].url);
-        localStorage.setItem("myLeads", JSON.stringify(myLeads));
-        renderLeads(myLeads);
-    })
+//clears the array, local storage, and DOM
+document.getElementById('clear-btn').addEventListener("click", function(){
+    remove(referenceInDb);
+    ulEl.innerHTML = "";
 })
 
 //fetch data from input field text and pushes to array and 
 document.getElementById('input-btn').addEventListener("click", function(){
-    myLeads.push(input.value);
+    push(referenceInDb, input.value);
     input.value = "";
-
-    localStorage.setItem("myLeads", JSON.stringify(myLeads))
-    renderLeads(myLeads);
 })
 
